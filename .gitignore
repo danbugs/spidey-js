@@ -1,0 +1,2 @@
+**/**.wasm
+!slightjs_engine.wasm
