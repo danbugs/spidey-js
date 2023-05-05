@@ -4,4 +4,6 @@ COPY . .
 RUN slight buildjs -e ./slightjs_engine.wasm -o ./main.wasm ./src/main.js
 
 FROM scratch
-COPY --from=build /opt/build/main.wasm ./main.wasm
+COPY --from=build /opt/build/main.wasm ./app.wasm
+COPY --from=build /opt/build/slightfile.toml .
+COPY --from=build /etc/ssl /etc/ssl
