@@ -114,3 +114,13 @@ sudo mv containerd-shim-slight-v0-5-1-v1 /usr/local/bin/containerd-shim-slight-v
 ```bash
 kubectl apply -f aks
 ```
+(13) Verify it works:
+```bash
+kubectl get svc
+# --> Sample successful output:
+# NAME          TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)        AGE
+# kubernetes    ClusterIP      10.0.0.1       <none>         443/TCP        10m
+# wasm-slight   LoadBalancer   10.0.133.247   <EXTERNAL-IP>  80:30725/TCP   2m47s
+curl http://EXTERNAL-IP/get/hello
+```
+
